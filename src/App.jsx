@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import Result from "./components/Result";
-import './App.css';
 
 export default function App(props) {
   const [results, setResults] = useState(props.results);
