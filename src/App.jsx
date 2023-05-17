@@ -17,7 +17,7 @@ export default function App(props) {
     const formData = new FormData(e.target);
     const rawUrl = formData.get("url");
     const url = rawUrl.includes("://") ? rawUrl : "http://" + rawUrl;
-    const iconUrl = new URL("favicon.ico", url);
+    const iconUrl = new URL(`https://www.google.com/s2/favicons?domain=${url}&sz=16`);
 
     fetch("http://localhost:8080/", { method: "POST", mode: "cors", body: url })
       .then((response) => response.text())
