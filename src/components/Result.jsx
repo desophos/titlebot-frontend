@@ -1,11 +1,12 @@
 import React from "react";
+import Stack from 'react-bootstrap/Stack';
 
 export default function Result(props) {
     return (
-        <li id={props.id}>
-            <img src={props.iconUrl} />
-            <span> | </span>
-            <span>{props.title}</span>
-        </li>
+        <Stack id={props.id} direction="horizontal" gap={1}>
+            <div><img src={props.iconUrl} /></div>
+            <div className="vr" />
+            <div>{props.title}</div>
+        </Stack>
     );
 }

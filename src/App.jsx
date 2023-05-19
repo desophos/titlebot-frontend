@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import Result from "./components/Result";
+import Container from "react-bootstrap/Container";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Stack from 'react-bootstrap/Stack';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export default function App(props) {
   const [results, setResults] = useState(props.results);
@@ -35,13 +41,30 @@ export default function App(props) {
   ));
 
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <h2><label htmlFor="url-input">Enter a URL:</label></h2>
-        <input type="text" id="url-input" name="url" autoComplete="off" />
-        <button type="submit">Fetch</button>
-      </form>
-      <ul id="results">{resultList}</ul>
-    </div>
+    <Container className="App">
+      <Stack gap={3}>
+        <div />
+        <div className="sticky-top">
+          <Form onSubmit={handleSubmit}>
+            <Form.Label htmlFor="url-input">Enter a URL to fetch its title:</Form.Label>
+            <Stack direction="horizontal" gap={2}>
+              <Form.Control type="text" placeholder="Enter URL" id="url-input" name="url" autoComplete="off" />
+              <Button variant="primary" type="submit">Fetch</Button>
+            </Stack>
+          </Form>
+        </div>
+        <Container>
+          <Row>
+            <Col />
+            <Col md="auto">
+              <Stack gap={1} id="results">
+                {resultList}
+              </Stack>
+            </Col>
+            <Col />
+          </Row>
+        </Container>
+      </Stack>
+    </Container>
   );
 }
