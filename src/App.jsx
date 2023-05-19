@@ -17,7 +17,7 @@ export default function App(props) {
     setResults([...results, newResult]);
   }
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);
