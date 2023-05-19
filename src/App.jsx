@@ -13,7 +13,7 @@ export default function App(props) {
 
   function addResult(iconUrl, title) {
     const newResult = { id: `result-${nanoid()}`, iconUrl: iconUrl, title: title };
-    console.log("Adding result %o", newResult);
+    console.log(`Adding result ${newResult}`);
     setResults([...results, newResult]);
   }
 
